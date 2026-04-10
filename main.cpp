@@ -145,6 +145,12 @@ results[0][3][0] = vectorDeleteTime;
 results[0][3][1] = listDeleteTime;
 results[0][3][2] = setDeleteTime;
 
+for (int op = 0; op < OPS; op++) {
+    for (int type = 0; type < TYPES; type++) {
+        results[1][op][type] += results[0][op][type];
+    }
+}
+
 cout << "Vector Read: "     << vectorTime << endl;
 cout << "List read time:   " << listReadTime << " ns" << endl;
 cout << "Set read time:    " << setReadTime << " ns" << endl;
