@@ -9,6 +9,10 @@
 
 using namespace std;
 
+const int SIMS = 15;
+const int OPS = 4;
+const int TYPES = 3;
+
 int main() {
     vector<string> codes;
     ifstream fin("codes.txt");
@@ -17,8 +21,10 @@ int main() {
     while (getline(fin, line)) {
         codes.push_back(line);
     }
+    fin.close();
 
-    cout << "Loaded"  <<codes.size()<< endl;
+long long results[2][OPS][TYPES] = {0};
+
 
 
 auto start = chrono::high_resolution_clock::now();
