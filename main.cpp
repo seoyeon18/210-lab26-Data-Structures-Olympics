@@ -26,13 +26,15 @@ int main() {
 long long results[2][OPS][TYPES] = {0};
 
 
-
+for (int sim = 0; sim < SIMS; sim++) {
 auto start = chrono::high_resolution_clock::now();
 
 vector<string> v;
 for (auto &s : codes) {
     v.push_back(s);
 }
+
+
 
 auto end = chrono::high_resolution_clock::now();
 long long vectorTime = 
@@ -126,6 +128,22 @@ long long vectorTime =
     end = chrono::high_resolution_clock::now();
     long long setDeleteTime =
         chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+
+results[0][0][0] = vectorTime;
+results[0][0][1] = listReadTime;
+results[0][0][2] = setReadTime;
+
+results[0][1][0] = vectorSortTime;
+results[0][1][1] = listSortTime;
+results[0][1][2] = setSortTime;
+
+results[0][2][0] = vectorInsertTime;
+results[0][2][1] = listInsertTime;
+results[0][2][2] = setInsertTime;
+
+results[0][3][0] = vectorDeleteTime;
+results[0][3][1] = listDeleteTime;
+results[0][3][2] = setDeleteTime;
 
 cout << "Vector Read: "     << vectorTime << endl;
 cout << "List read time:   " << listReadTime << " ns" << endl;
