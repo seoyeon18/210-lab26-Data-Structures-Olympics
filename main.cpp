@@ -150,6 +150,16 @@ for (int op = 0; op < OPS; op++) {
         results[1][op][type] += results[0][op][type];
     }
 }
+cout << "Completed simulation " << sim + 1 << endl;
+
+long long averages[OPS][TYPES] = {0};
+
+for (int op = 0; op < OPS; op++) {
+    for (int type = 0; type < TYPES; type++) {
+        averages[op][type] = results[1][op][type] / SIMS;
+    }
+}
+
 
 cout << "Vector Read: "     << vectorTime << endl;
 cout << "List read time:   " << listReadTime << " ns" << endl;
