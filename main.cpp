@@ -6,6 +6,7 @@
 #include <list>
 #include <set>
 #include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
@@ -161,22 +162,35 @@ for (int op = 0; op < OPS; op++) {
 }
 
 
-cout << "Vector Read: "     << vectorTime << endl;
-cout << "List read time:   " << listReadTime << " ns" << endl;
-cout << "Set read time:    " << setReadTime << " ns" << endl;
 
 
-cout << "Vector sort time:   " << vectorSortTime << " ns" << endl;
-cout << "List sort time:     " << listSortTime << " ns" << endl;
-cout << "Set sort time:      " << setSortTime << endl;
+cout << "Number of simulations: " << SIMS << endl;
 
-cout << "Vector insert time: " << vectorInsertTime << " ns" << endl;
-cout << "List insert time:   " << listInsertTime << " ns" << endl;
-cout << "Set insert time:    " << setInsertTime << " ns" << endl;
+cout << left
+     << setw(12) << "Operation"
+     << setw(12) << "Vector"
+     << setw(12) << "List"
+     << setw(12) << "Set" << endl;
 
-cout << "Vector delete time: " << vectorDeleteTime << " ns" << endl;
-cout << "List delete time:   " << listDeleteTime << " ns" << endl;
-cout << "Set delete time:    " << setDeleteTime << " ns" << endl;
+cout << setw(12) << "Read"
+     << setw(12) << averages[0][0]
+     << setw(12) << averages[0][1]
+     << setw(12) << averages[0][2] << endl;
+
+cout << setw(12) << "Sort"
+     << setw(12) << averages[1][0]
+     << setw(12) << averages[1][1]
+     << setw(12) << averages[1][2] << endl;
+
+cout << setw(12) << "Insert"
+     << setw(12) << averages[2][0]
+     << setw(12) << averages[2][1]
+     << setw(12) << averages[2][2] << endl;
+
+cout << setw(12) << "Delete"
+     << setw(12) << averages[3][0]
+     << setw(12) << averages[3][1]
+     << setw(12) << averages[3][2] << endl;
 
 return 0;
 }
